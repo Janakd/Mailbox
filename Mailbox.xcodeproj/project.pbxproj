@@ -14,6 +14,7 @@
 		865FC4F21BF1B0A300CF7AF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865FC4F01BF1B0A300CF7AF4 /* LaunchScreen.storyboard */; };
 		865FC4FD1BF1B0A300CF7AF4 /* MailboxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865FC4FC1BF1B0A300CF7AF4 /* MailboxTests.swift */; };
 		865FC5081BF1B0A300CF7AF4 /* MailboxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865FC5071BF1B0A300CF7AF4 /* MailboxUITests.swift */; };
+		865FC5161BF1B24000CF7AF4 /* MailboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865FC5151BF1B24000CF7AF4 /* MailboxViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		865FC5031BF1B0A300CF7AF4 /* MailboxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MailboxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		865FC5071BF1B0A300CF7AF4 /* MailboxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailboxUITests.swift; sourceTree = "<group>"; };
 		865FC5091BF1B0A300CF7AF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		865FC5151BF1B24000CF7AF4 /* MailboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailboxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				865FC4E71BF1B0A300CF7AF4 /* AppDelegate.swift */,
 				865FC4E91BF1B0A300CF7AF4 /* ViewController.swift */,
 				865FC4EB1BF1B0A300CF7AF4 /* Main.storyboard */,
+				865FC5151BF1B24000CF7AF4 /* MailboxViewController.swift */,
 				865FC4EE1BF1B0A300CF7AF4 /* Assets.xcassets */,
 				865FC4F01BF1B0A300CF7AF4 /* LaunchScreen.storyboard */,
 				865FC4F31BF1B0A300CF7AF4 /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				865FC4EA1BF1B0A300CF7AF4 /* ViewController.swift in Sources */,
 				865FC4E81BF1B0A300CF7AF4 /* AppDelegate.swift in Sources */,
+				865FC5161BF1B24000CF7AF4 /* MailboxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
