@@ -32,32 +32,27 @@
                                 <rect key="frame" x="0.0" y="158" width="320" height="1219"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="feed" id="t1P-IJ-aXU">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1202"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <animations/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" id="ryH-eU-LTj">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="later_icon" id="Kiw-5W-wo4">
-                                                <rect key="frame" x="278" y="30" width="25" height="25"/>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="list_icon" id="WZu-of-IvM">
+                                                <rect key="frame" x="287" y="30" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <animations/>
                                             </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="list_icon" id="WZu-of-IvM">
-                                                <rect key="frame" x="281" y="0.0" width="25" height="25"/>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="later_icon" id="Kiw-5W-wo4">
+                                                <rect key="frame" x="287" y="30" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <animations/>
                                             </imageView>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="x8c-Q5-Zej">
-                                                <rect key="frame" x="22" y="8" width="25" height="25"/>
+                                                <rect key="frame" x="8" y="30" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <animations/>
                                             </imageView>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="delete_icon" id="RCT-Ry-4Lg">
-                                                <rect key="frame" x="13" y="39" width="25" height="25"/>
+                                                <rect key="frame" x="8" y="30" width="25" height="25"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <animations/>
                                             </imageView>
@@ -66,11 +61,19 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <animations/>
                                                 <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="EYS-6r-9pP" appends="YES" id="O4W-aU-P52"/>
+                                                </connections>
                                             </imageView>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="feed" id="t1P-IJ-aXU">
+                                        <rect key="frame" x="0.0" y="87" width="320" height="1202"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <animations/>
+                                    </imageView>
                                 </subviews>
                                 <animations/>
                             </scrollView>
@@ -81,11 +84,21 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1372"/>
                     <connections>
+                        <outlet property="archiveIcon" destination="x8c-Q5-Zej" id="13j-eM-rrt"/>
+                        <outlet property="backgroundView" destination="ryH-eU-LTj" id="lr9-oy-rxO"/>
+                        <outlet property="deleteIcon" destination="RCT-Ry-4Lg" id="SE2-bA-cYV"/>
+                        <outlet property="laterIcon" destination="Kiw-5W-wo4" id="Hol-Ih-h6z"/>
+                        <outlet property="listIcon" destination="WZu-of-IvM" id="lUB-nz-r9T"/>
+                        <outlet property="messageView" destination="Q8L-YU-ODQ" id="OPJ-YO-WE0"/>
                         <outlet property="scrollView" destination="eBu-hB-OHH" id="eYg-3U-NYr"/>
-                        <outlet property="view" destination="ryH-eU-LTj" id="34W-PI-0la"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Id-cO-ept" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="EYS-6r-9pP">
+                    <connections>
+                        <action selector="didPanMessage:" destination="hyp-fk-sbi" id="ZGj-YC-31c"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="601" y="349"/>
         </scene>
