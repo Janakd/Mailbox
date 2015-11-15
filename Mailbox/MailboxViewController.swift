@@ -52,7 +52,6 @@ class MailboxViewController: UIViewController {
         
         let location = sender.locationInView(view)
         let translation = sender.translationInView(view)
-        let velocity = sender.velocityInView(view)
         
         
         if sender.state == UIGestureRecognizerState.Began {
@@ -143,9 +142,17 @@ class MailboxViewController: UIViewController {
             messageView.center = initialCenter
             
             if endState == 0 {
+                
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    
-                    self.feedImageView.center.y  = self.feedImageView.center.y  - 86
+                    self.messageView.alpha = 0
+//                    self.feedImageView.center.y  = self.feedImageView.center.y  - 86
+                })
+                
+                
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                   self.messageView.alpha = 1
+//                    self.feedImageView.center.y  = self.feedImageView.center.y  + 86
+
                 })
             }
             
@@ -154,7 +161,6 @@ class MailboxViewController: UIViewController {
                 
                 UIView.animateWithDuration(0.3, animations: { () -> Void in
                     self.rescheduleView.alpha = 1
-                    
                 })
                 
                 
@@ -181,15 +187,22 @@ class MailboxViewController: UIViewController {
     
     @IBAction func didTapReschedule(sender: UITapGestureRecognizer) {
         rescheduleView.alpha = 0
-        UIView.animateWithDuration(0.5) { () -> Void in
+        UIView.animateWithDuration(0.8) { () -> Void in
+            self.messageView.alpha = 0
             self.feedImageView.center.y  = self.feedImageView.center.y  - 86
+        }
+        UIView.animateWithDuration(0.1) { () -> Void in
+            self.feedImageView.center.y = self.feedImageView.center.y + 86
+            self.messageView.alpha = 1
         }
     }
 
     @IBAction func didTapList(sender: UITapGestureRecognizer) {
         listView.alpha = 0
+        
         UIView.animateWithDuration(0.5) { () -> Void in
-            self.feedImageView.center.y  = self.feedImageView.center.y  - 86
+            //self.feedImageView.center.y  = self.feedImageView.center.y  - 86
+            self.messageView.alpha = 0
         }
     }
     
