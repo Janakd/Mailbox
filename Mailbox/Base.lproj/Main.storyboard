@@ -36,26 +36,40 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="list_icon" id="WZu-of-IvM">
-                                                <rect key="frame" x="287" y="30" width="25" height="25"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                            <view contentMode="scaleToFill" id="zHC-wQ-7hC">
+                                                <rect key="frame" x="275" y="8" width="45" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="list_icon" id="WZu-of-IvM">
+                                                        <rect key="frame" x="10" y="22" width="25" height="25"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <animations/>
+                                                    </imageView>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="later_icon" id="Kiw-5W-wo4">
+                                                        <rect key="frame" x="10" y="22" width="25" height="25"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <animations/>
+                                                    </imageView>
+                                                </subviews>
                                                 <animations/>
-                                            </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="later_icon" id="Kiw-5W-wo4">
-                                                <rect key="frame" x="287" y="30" width="25" height="25"/>
-                                                <autoresizingMask key="autoresizingMask"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="ASf-na-5Na">
+                                                <rect key="frame" x="0.0" y="8" width="41" height="70"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="delete_icon" id="RCT-Ry-4Lg">
+                                                        <rect key="frame" x="8" y="23" width="25" height="25"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <animations/>
+                                                    </imageView>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="x8c-Q5-Zej">
+                                                        <rect key="frame" x="8" y="23" width="25" height="25"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <animations/>
+                                                    </imageView>
+                                                </subviews>
                                                 <animations/>
-                                            </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="archive_icon" id="x8c-Q5-Zej">
-                                                <rect key="frame" x="8" y="30" width="25" height="25"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <animations/>
-                                            </imageView>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="delete_icon" id="RCT-Ry-4Lg">
-                                                <rect key="frame" x="8" y="30" width="25" height="25"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <animations/>
-                                            </imageView>
+                                            </view>
                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="message" id="Q8L-YU-ODQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
                                                 <autoresizingMask key="autoresizingMask"/>
@@ -77,6 +91,24 @@
                                 </subviews>
                                 <animations/>
                             </scrollView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="reschedule" id="jel-rz-PKw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <animations/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="UzU-Qa-AZZ" appends="YES" id="blP-Pv-WlR"/>
+                                </connections>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="list" id="bHt-Nn-G51">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <animations/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="XI7-Mo-9f7" appends="YES" id="2hA-w1-ZXw"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,9 +119,14 @@
                         <outlet property="archiveIcon" destination="x8c-Q5-Zej" id="13j-eM-rrt"/>
                         <outlet property="backgroundView" destination="ryH-eU-LTj" id="lr9-oy-rxO"/>
                         <outlet property="deleteIcon" destination="RCT-Ry-4Lg" id="SE2-bA-cYV"/>
+                        <outlet property="feedImageView" destination="t1P-IJ-aXU" id="WYp-be-IXE"/>
                         <outlet property="laterIcon" destination="Kiw-5W-wo4" id="Hol-Ih-h6z"/>
+                        <outlet property="leftIconsView" destination="ASf-na-5Na" id="S3T-2Y-zep"/>
                         <outlet property="listIcon" destination="WZu-of-IvM" id="lUB-nz-r9T"/>
+                        <outlet property="listView" destination="bHt-Nn-G51" id="kTY-wA-Rwp"/>
                         <outlet property="messageView" destination="Q8L-YU-ODQ" id="OPJ-YO-WE0"/>
+                        <outlet property="rescheduleView" destination="jel-rz-PKw" id="Kgf-uD-N8Q"/>
+                        <outlet property="rightIconView" destination="zHC-wQ-7hC" id="MXh-Ae-Ilh"/>
                         <outlet property="scrollView" destination="eBu-hB-OHH" id="eYg-3U-NYr"/>
                     </connections>
                 </viewController>
@@ -99,6 +136,16 @@
                         <action selector="didPanMessage:" destination="hyp-fk-sbi" id="ZGj-YC-31c"/>
                     </connections>
                 </panGestureRecognizer>
+                <tapGestureRecognizer id="UzU-Qa-AZZ">
+                    <connections>
+                        <action selector="didTapReschedule:" destination="hyp-fk-sbi" id="trs-F2-EgC"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="XI7-Mo-9f7">
+                    <connections>
+                        <action selector="didTapList:" destination="hyp-fk-sbi" id="prP-FB-WBy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="601" y="349"/>
         </scene>
@@ -109,9 +156,11 @@
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
         <image name="later_icon" width="25" height="25"/>
+        <image name="list" width="320" height="568"/>
         <image name="list_icon" width="25" height="25"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
+        <image name="reschedule" width="320" height="568"/>
         <image name="search" width="320" height="42"/>
     </resources>
 </document>
