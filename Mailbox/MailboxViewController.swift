@@ -26,11 +26,16 @@ class MailboxViewController: UIViewController {
     
     @IBOutlet weak var rescheduleView: UIImageView!
     
+    @IBOutlet weak var masterView: UIView!
+    
+    @IBOutlet var edgePan: UIScreenEdgePanGestureRecognizer!
+    
     var initialCenter: CGPoint!
     var initialCenterRightIcons: CGPoint!
     var initialCenterLeftIcons: CGPoint!
     var endState = 0
     
+    var masterViewOriginalCenter: CGPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +43,12 @@ class MailboxViewController: UIViewController {
         scrollView.contentSize = CGSize(width: 320, height: 1202)
         listView.alpha = 0
         rescheduleView.alpha = 0
+        
+        masterViewOriginalCenter = masterView.center
+        
+        edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: "onEdgePan:")
+        edgePan.edges = UIRectEdge.Left
+        view.addGestureRecognizer(edgePan)
         
     }
 
@@ -75,7 +86,9 @@ class MailboxViewController: UIViewController {
             if translation.x > -60 && translation.x < 0 {
                 
                 backgroundView.backgroundColor = UIColor.grayColor()
-                laterIcon.alpha = 1
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    self.laterIcon.alpha = 1
+                })
                 endState = 0
 
                 }
@@ -85,7 +98,9 @@ class MailboxViewController: UIViewController {
             if  translation.x > 0 &&  translation.x < 60 {
                 
                 backgroundView.backgroundColor = UIColor.grayColor()
-                archiveIcon.alpha = 1
+                UIView.animateWithDuration(0.4, animations: { () -> Void in
+                    self.archiveIcon.alpha = 1
+                })
                 endState = 0
 
                 }
@@ -106,7 +121,10 @@ class MailboxViewController: UIViewController {
             else if translation.x >= 260 {
                 backgroundView.backgroundColor = UIColor.redColor()
                 resetAll()
+                
                 deleteIcon.alpha = 1
+                
+                
                 leftIconsView.center = CGPoint(x: initialCenterLeftIcons.x + translation.x - 60, y: initialCenterLeftIcons.y)
                 endState = 0
             }
@@ -129,6 +147,7 @@ class MailboxViewController: UIViewController {
                 backgroundView.backgroundColor = UIColor.brownColor()
                 resetAll()
                 listIcon.alpha = 1
+
                 rightIconView.center = CGPoint(x: initialCenterRightIcons.x + translation.x + 60, y: initialCenterRightIcons.y)
                 endState = 2
             }
@@ -142,16 +161,16 @@ class MailboxViewController: UIViewController {
             messageView.center = initialCenter
             
             if endState == 0 {
-                
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.messageView.alpha = 0
-//                    self.feedImageView.center.y  = self.feedImageView.center.y  - 86
+                self.messageView.alpha = 0
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
+                    
+                    self.feedImageView.center.y = self.feedImageView.center.y + 86.0
                 })
                 
                 
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                UIView.animateWithDuration(0.3, animations: { () -> Void in
                    self.messageView.alpha = 1
-//                    self.feedImageView.center.y  = self.feedImageView.center.y  + 86
+                   self.feedImageView.center.y = self.feedImageView.center.y - 86.0
 
                 })
             }
@@ -187,24 +206,57 @@ class MailboxViewController: UIViewController {
     
     @IBAction func didTapReschedule(sender: UITapGestureRecognizer) {
         rescheduleView.alpha = 0
+        self.messageView.alpha = 0
+
         UIView.animateWithDuration(0.8) { () -> Void in
-            self.messageView.alpha = 0
-            self.feedImageView.center.y  = self.feedImageView.center.y  - 86
+            self.feedImageView.center.y  = self.feedImageView.center.y  + 86
         }
         UIView.animateWithDuration(0.1) { () -> Void in
-            self.feedImageView.center.y = self.feedImageView.center.y + 86
+            self.feedImageView.center.y = self.feedImageView.center.y - 86
             self.messageView.alpha = 1
         }
     }
 
     @IBAction func didTapList(sender: UITapGestureRecognizer) {
         listView.alpha = 0
-        
+        self.messageView.alpha = 0
+
         UIView.animateWithDuration(0.5) { () -> Void in
-            //self.feedImageView.center.y  = self.feedImageView.center.y  - 86
-            self.messageView.alpha = 0
+            self.feedImageView.center.y  = self.feedImageView.center.y  + 86
+        }
+        UIView.animateWithDuration(0.1) { () -> Void in
+            self.feedImageView.center.y = self.feedImageView.center.y - 86
+            self.messageView.alpha = 1
         }
     }
+    
+    func onEdgePan(edgePanGestureRecognizer: UIScreenEdgePanGestureRecognizer){
+        
+        let translation = edgePanGestureRecognizer.translationInView(view)
+        
+        if edgePanGestureRecognizer.state == UIGestureRecognizerState.Began {
+            
+        }
+        else if edgePanGestureRecognizer.state == UIGestureRecognizerState.Changed {
+            
+            masterView.center.x = masterViewOriginalCenter.x + translation.x
+            
+        }
+        else if edgePanGestureRecognizer.state == UIGestureRecognizerState.Ended {
+            let width = UIScreen.mainScreen().bounds.width
+            
+            if (masterView.center.x - masterViewOriginalCenter.x < width/2.0) {
+                masterView.center.x = masterViewOriginalCenter.x
+            }
+            
+            else {
+                masterView.center.x = masterViewOriginalCenter.x + width
+            }
+            
+        }
+    }
+    
+    
     
     
     }
